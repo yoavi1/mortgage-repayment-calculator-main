@@ -1,0 +1,80 @@
+@font-face {
+  font-family: PlusJakartaSans-Italic-VariableFont;
+  src: url(/assets/fonts/PlusJakartaSans-Italic-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: PlusJakartaSans-VariableFont;
+  src: url(/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: PlusJakartaSans-VariableFont; */
+  height: 100vh;
+}
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aquamarine;
+}
+.card {
+  background-color: azure;
+  display: flex;
+  max-width: 750px;
+  /* max-width: 80%; */
+}
+.form-side,
+.result-side {
+  /* max-width: ; */
+  width: 50%;
+  padding: 1rem;
+}
+
+.form-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.card h1 {
+  font-size: 1rem;
+}
+.form-head a {
+  font-size: 0.8rem;
+}
+
+form .input-box {
+  /* max-width: 100%; */
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+form label {
+  font-size: 0.7rem;
+}
+.box1 input,
+.box2 input,
+.box3 input {
+  /* max-width: 100%; */
+  width: 100%;
+}
+.row-input-items {
+  display: flex;
+  .input-box {
+    flex: 1;
+  }
+}
+.row-input-items .input-box {
+  width: 50%;
+}
+
+.Mortgage-Term-box,
+.Interest-Rate-box {
+  display: flex;
+}
