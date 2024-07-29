@@ -27,19 +27,22 @@
 body {
   font-family: PlusJakartaSans-VariableFont;
   height: 100vh;
+  background-color: var(--Slate-100);
 }
 main {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 .card {
-  background-color: azure;
+  background-color: var(--White);
   display: flex;
   max-width: 750px;
   /* max-width: 80%; */
+  border-radius: 1rem;
+  overflow: hidden;
 }
 .form-side,
 .result-side {
