@@ -56,7 +56,7 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
   padding-inline: 0.3rem;
   font-size: 0.4rem;
 }
@@ -186,7 +186,7 @@ form label {
   align-items: center;
   background-color: var(--Lime);
   /* height: 1.7rem; */
-  width: 50%;
+  width: 60%;
   font-size: 0.5rem;
   padding: 0.3rem;
   border-radius: 50px;
@@ -275,3 +275,42 @@ form label {
 #total-repayment {
   font-size: 0.8rem;
 }
+
+@media (max-width: 680px) {
+  body {
+    background-color: white;
+  }
+  .card {
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0px;
+  }
+
+  .form-side,
+  .result-side {
+    /* font-size: 16px; */
+    width: 100%;
+    /* padding: 1rem; */
+    border-radius: 0px;
+  }
+  /* .form-head {
+    flex-direction: column;
+    align-items: start;
+  } */
+  .row-input-items {
+    flex-direction: column;
+    /* justify-content: center; */
+  }
+  .calculator-btn {
+    margin-inline: auto;
+    width: 80%;
+  }
+  .result-side img {
+    /* width: 30%; */
+  }
+}
+
+/* 
+@media (max-width: 680px) {
+} */
+/* @media screen and (max-width: 992px)  */

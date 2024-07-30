@@ -67,6 +67,12 @@ function calculate(event) {
       console.log('total repayment', totalRepayment);
       break;
     case 'interest-only':
+      montlhyRepaymentValueElem.textContent = Number(
+        MonthlyInterestOnlyRepayment.toFixed(2)
+      ).toLocaleString();
+      totalRepaymentValueElem.textContent = Number(
+        TotalInterestOnlyRepayment.toFixed(2)
+      ).toLocaleString();
       console.log(
         'Monthly Interest Only Repayment',
         MonthlyInterestOnlyRepayment
@@ -129,7 +135,7 @@ function CheckedRadioOption() {
   // return null;
 }
 
-function isValidForm(params) {}
+// function isValidForm(params) {}
 // M is the monthly mortgage payment.
 // 𝑃
 // P is the principal loan amount.
