@@ -2,6 +2,7 @@ const mortagageAmount = document.querySelector('#Mortgage-Amount');
 const mortgageTerm = document.querySelector('#Mortgage-Term');
 const interestRate = document.querySelector('#Interest-Rate');
 const numberPaymentsPerYear = 12;
+
 // const repaymentRadioOption = document.querySelector('#repayment-option');
 // const interestOnlyRadioOption = document.querySelector('#interest-only-option');
 const radioOptionsElement = document.querySelectorAll(
@@ -42,6 +43,14 @@ function calculate(event) {
     interestRateValue,
     mortgageTermValue
   );
+  // .result-side-complete
+  const resultSide = document.querySelector('.result-side');
+  const resultEmpty = document.querySelector('#not-complited');
+  const resultCompleted = document.querySelector('#complited');
+  resultEmpty.classList.add('wraper-result-not-empty');
+  resultCompleted.classList.remove('wraper-results-not-completed');
+  resultSide.classList.remove('result-side-empty');
+  resultSide.classList.add('result-side-complete');
 
   switch (CheckedRadioOption()) {
     case 'repayment':

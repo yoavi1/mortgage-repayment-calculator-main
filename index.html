@@ -36,12 +36,15 @@
           <form>
             <div class="input-box box1">
               <label for="Mortgage-Amount">Mortgage Amount</label>
-              <input
-                id="Mortgage-Amount"
-                type="number"
-                value="300000"
-                min="0"
-              />
+              <div class="mortagage-amount">
+                <span>$</span>
+                <input
+                  id="Mortgage-Amount"
+                  type="number"
+                  value="300000"
+                  min="0"
+                />
+              </div>
             </div>
             <div class="row-input-items">
               <div class="input-box box2">
@@ -66,7 +69,7 @@
               </div>
             </div>
             <div class="input-box options">
-              <p>Mortgage Type</p>
+              <p class="mortagage-type-title">Mortgage Type</p>
               <div class="option">
                 <label for="repayment-option">
                   <input
@@ -88,39 +91,57 @@
                 >
               </div>
             </div>
-            <button id="btn" class="calculator-btn">Calculate Repayment</button>
+            <button id="btn" class="calculator-btn">
+              <span
+                ><img src="./assets/images/icon-calculator.svg" alt="" /></span
+              >Calculate Repayment
+            </button>
           </form>
         </div>
 
         <!-- Empty results start -->
 
-        <div class="result-side">
-          <img src="/assets/images/illustration-empty.svg" alt="" />
-          <h2>Results shown here</h2>
-          <p>
-            Complete the form and click “calculate repayments” to see what your
-            monthly repayments would be
-          </p>
-          <!-- 
-          <h2>Your results</h2>
-          <p>
-            Your results are shown below based on the information you provided.
-            To adjust the results, edit the form and click “calculate
-            repayments” again.
-          </p>
-          <div class="result">
-            <p>Your monthly repayments</p>
-            <hr />
-            <p>Total you'll repay over the term</p>
-          </div> -->
+        <div class="result-side result-side-empty">
+          <div id="not-complited">
+            <div class="empyt-results">
+              <img src="/assets/images/illustration-empty.svg" alt="" />
+              <h2>Results shown here</h2>
+              <p>
+                Complete the form and click “calculate repayments” to see what
+                your monthly repayments would be
+              </p>
+            </div>
+          </div>
+
+          <div id="complited" class="wraper-results-not-completed">
+            <div class="completed-results">
+              <h2>Your results</h2>
+              <p>
+                Your results are shown below based on the information you
+                provided. To adjust the results, edit the form and click
+                “calculate repayments” again.
+              </p>
+
+              <div class="result-box">
+                <p>
+                  Your monthly repayments
+                  <span id="montlhy-repayment">10059</span>
+                </p>
+                <hr />
+                <p>
+                  Total you'll repay over the term
+                  <span id="total-repayment">10059</span>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty results end -->
+
+          <!-- Completed results start -->
+
+          <!-- Completed results end -->
         </div>
-        <!-- ++ -->
-
-        <!-- Empty results end -->
-
-        <!-- Completed results start -->
-
-        <!-- Completed results end -->
       </div>
     </main>
     <script src="script.js"></script>
