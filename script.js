@@ -47,6 +47,9 @@ function calculate(event) {
   const resultSide = document.querySelector('.result-side');
   const resultEmpty = document.querySelector('#not-complited');
   const resultCompleted = document.querySelector('#complited');
+  const montlhyRepaymentValueElem =
+    document.querySelector('#montlhy-repayment');
+  const totalRepaymentValueElem = document.querySelector('#total-repayment');
   resultEmpty.classList.add('wraper-result-not-empty');
   resultCompleted.classList.remove('wraper-results-not-completed');
   resultSide.classList.remove('result-side-empty');
@@ -54,6 +57,12 @@ function calculate(event) {
 
   switch (CheckedRadioOption()) {
     case 'repayment':
+      montlhyRepaymentValueElem.textContent = Number(
+        monthlyRepayment.toFixed(2)
+      ).toLocaleString();
+      totalRepaymentValueElem.textContent = Number(
+        totalRepayment.toFixed(2)
+      ).toLocaleString();
       console.log('monthlyRepayment', monthlyRepayment);
       console.log('total repayment', totalRepayment);
       break;
