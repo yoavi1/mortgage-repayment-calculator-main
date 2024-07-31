@@ -22,6 +22,10 @@ function calculate(event) {
   if (!CheckedRadioOption()) {
     return;
   }
+  if (!isValidForm(mortagageAmount, mortgageTerm, interestRate)) {
+    return;
+  }
+
   const mortagageAmountValue = Number(mortagageAmount.value);
   const mortgageTermValue = Number(mortgageTerm.value);
   const interestRateValue = Number(interestRate.value) / 100;
@@ -73,11 +77,11 @@ function calculate(event) {
       totalRepaymentValueElem.textContent = Number(
         TotalInterestOnlyRepayment.toFixed(2)
       ).toLocaleString();
+      console.log('Total Interest Only Repayment', TotalInterestOnlyRepayment);
       console.log(
         'Monthly Interest Only Repayment',
         MonthlyInterestOnlyRepayment
       );
-      console.log('Total Interest Only Repayment', TotalInterestOnlyRepayment);
       break;
   }
 
@@ -122,7 +126,8 @@ function calculateTotalInterestOnlyRepayment(
 }
 
 //return the radio option that checked by the user if  the user didnt
-//checked any option return null.
+//checked any option return undenied.
+
 function CheckedRadioOption() {
   let choise;
   radioOptionsElement.forEach((option) => {
@@ -135,7 +140,21 @@ function CheckedRadioOption() {
   // return null;
 }
 
-// function isValidForm(params) {}
+function isValidForm(...elems) {
+  let flag;
+  elems.forEach((element) => {
+    console.log(element.value);
+    if (isNaN(element.value) || Number(element.value) <= 0) {
+      flag = false;
+      return;
+    } else {
+      flag = true;
+    }
+  });
+
+  return flag;
+}
+
 // M is the monthly mortgage payment.
 // 𝑃
 // P is the principal loan amount.
