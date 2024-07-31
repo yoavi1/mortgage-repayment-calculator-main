@@ -7,16 +7,35 @@
   </head>
   <body>
     <script>
-      let string = 'hello';
-      let reverseString = ``;
-      // for (i = 0; i < string.length; i++) {
-      //   let charString = string[i];
-      //   console.log(charString);
-      for (j = string.length - 1; j >= 0; j--) {
-        reverseString += string[j];
-      }
-      console.log(reverseString);
+      // let string = 'hello';
+      // let reverseString = ``;
+      // for (let j = string.length - 1; j >= 0; j--) {
+      //   reverseString += string[j];
       // }
+      // console.log(reverseString);
+      // }
+
+      const person = {
+        name: 'dan',
+        lastName: 'israeli',
+        city: 'p.t',
+      };
+      console.log(person, 'start');
+      for (const key in person) {
+        console.log(person[key]);
+      }
+      console.log('end1');
+      for (const key in person) {
+        person[key] = 'david';
+      }
+      console.log('end2');
+      console.log(person);
+
+      for (const key in object) {
+        if (Object.hasOwnProperty.call(object, key)) {
+          const element = object[key];
+        }
+      }
     </script>
   </body>
 </html>

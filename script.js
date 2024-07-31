@@ -3,26 +3,21 @@ const mortgageTerm = document.querySelector('#Mortgage-Term');
 const interestRate = document.querySelector('#Interest-Rate');
 const numberPaymentsPerYear = 12;
 
-// const repaymentRadioOption = document.querySelector('#repayment-option');
-// const interestOnlyRadioOption = document.querySelector('#interest-only-option');
 const radioOptionsElement = document.querySelectorAll(
   'input[name="radio-options"]'
 );
-// console.log(mortagageAmount);
 const btn = document.querySelector('#btn');
-// const calcBtn = document.querySelector('.calculator-btn');
 
 btn.addEventListener('click', calculate);
 
 function calculate(event) {
   event.preventDefault();
 
-  // console.log(CheckedRadioOption());
-
   if (!CheckedRadioOption()) {
     return;
   }
   if (!isValidForm(mortagageAmount, mortgageTerm, interestRate)) {
+    validationError();
     return;
   }
 
@@ -84,11 +79,6 @@ function calculate(event) {
       );
       break;
   }
-
-  // console.log('monthlyRepayment', monthlyRepayment);
-  // console.log('total repayment', totalRepayment);
-  // console.log('Monthly Interest Only Repayment', MonthlyInterestOnlyRepayment);
-  // console.log('Total Interest Only Repayment', TotalInterestOnlyRepayment);
 }
 function calculateMonthlyRepayment(
   mortagageAmountValue,
@@ -125,9 +115,6 @@ function calculateTotalInterestOnlyRepayment(
   return mortagageAmountValue * interestRateValue * mortgageTermValue;
 }
 
-//return the radio option that checked by the user if  the user didnt
-//checked any option return undenied.
-
 function CheckedRadioOption() {
   let choise;
   radioOptionsElement.forEach((option) => {
@@ -137,30 +124,37 @@ function CheckedRadioOption() {
     }
   });
   return choise;
-  // return null;
 }
 
 function isValidForm(...elems) {
-  let flag;
+  let flag = true;
   elems.forEach((element) => {
     console.log(element.value);
     if (isNaN(element.value) || Number(element.value) <= 0) {
       flag = false;
       return;
-    } else {
-      flag = true;
     }
   });
 
   return flag;
 }
 
-// M is the monthly mortgage payment.
-// 𝑃
-// P is the principal loan amount.
-// 𝑟
-// r is the annual interest rate (in decimal form; e.g., 5% is 0.05).
-// 𝑛
-// n is the number of payments per year (12 for monthly payments).
-// 𝑡
-// t is the loan term in years.
+function validationError() {
+  const spansError = document.querySelectorAll('.input-box span');
+  const warningDivs = document.querySelectorAll('.error-warning');
+  spansError.forEach((span) => {
+    span.classList.add('error-colors');
+
+    setTimeout(() => {
+      span.classList.remove('error-colors');
+      span.classList.add('error-not-display');
+    }, 3000);
+  });
+
+  warningDivs.forEach((div) => {
+    div.classList.remove('error-not-display');
+    setTimeout(() => {
+      div.classList.add('error-not-display');
+    }, 3000);
+  });
+}

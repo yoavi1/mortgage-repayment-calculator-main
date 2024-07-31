@@ -276,6 +276,11 @@ form label {
   font-size: 0.8rem;
 }
 
+.error-colors {
+  background-color: red;
+  color: white;
+}
+
 @media (max-width: 680px) {
   body {
     background-color: white;
@@ -330,3 +335,18 @@ form label {
 @media (max-width: 680px) {
 } */
 /* @media screen and (max-width: 992px)  */
+
+.input-box .error-colors {
+  background-color: red;
+  color: white;
+}
+
+.error-not-display {
+  display: none;
+}
+
+.error-warning {
+  color: red;
+  margin-top: 0.1rem;
+  font-size: 0.4rem;
+}
