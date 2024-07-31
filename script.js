@@ -1,18 +1,27 @@
+//dom variable
 const mortagageAmount = document.querySelector('#Mortgage-Amount');
 const mortgageTerm = document.querySelector('#Mortgage-Term');
 const interestRate = document.querySelector('#Interest-Rate');
 const numberPaymentsPerYear = 12;
-
 const radioOptionsElement = document.querySelectorAll(
   'input[name="radio-options"]'
 );
 const btn = document.querySelector('#btn');
+const resultSide = document.querySelector('.result-side');
+const resultEmpty = document.querySelector('#not-complited');
+const resultCompleted = document.querySelector('#complited');
+const montlhyRepaymentValueElem = document.querySelector('#montlhy-repayment');
+const totalRepaymentValueElem = document.querySelector('#total-repayment');
 
+//this event listener call the function calculate when the user click
+//on the caclculation button
 btn.addEventListener('click', calculate);
 
+//calculation main function
 function calculate(event) {
   event.preventDefault();
 
+  //check if the user choose option and entered valid input. if not the functoin stop
   if (!CheckedRadioOption()) {
     return;
   }
@@ -20,7 +29,7 @@ function calculate(event) {
     validationError();
     return;
   }
-
+  //aisne input value from user to variable
   const mortagageAmountValue = Number(mortagageAmount.value);
   const mortgageTermValue = Number(mortgageTerm.value);
   const interestRateValue = Number(interestRate.value) / 100;
@@ -29,6 +38,7 @@ function calculate(event) {
     mortgageTermValue,
     interestRateValue
   );
+
   const totalRepayment = calculateTotalRepayment(
     monthlyRepayment,
     mortgageTermValue
@@ -42,18 +52,15 @@ function calculate(event) {
     interestRateValue,
     mortgageTermValue
   );
-  // .result-side-complete
-  const resultSide = document.querySelector('.result-side');
-  const resultEmpty = document.querySelector('#not-complited');
-  const resultCompleted = document.querySelector('#complited');
-  const montlhyRepaymentValueElem =
-    document.querySelector('#montlhy-repayment');
-  const totalRepaymentValueElem = document.querySelector('#total-repayment');
+
+  //use dom manipulatins  to display the results
+
   resultEmpty.classList.add('wraper-result-not-empty');
   resultCompleted.classList.remove('wraper-results-not-completed');
   resultSide.classList.remove('result-side-empty');
   resultSide.classList.add('result-side-complete');
 
+  // this switch decide by the user option what is the specific result to display
   switch (CheckedRadioOption()) {
     case 'repayment':
       montlhyRepaymentValueElem.textContent = Number(
