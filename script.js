@@ -16,7 +16,10 @@ const totalRepaymentValueElem = document.querySelector('#total-repayment');
 //this event listener call the function calculate when the user click
 //on the caclculation button
 btn.addEventListener('click', calculate);
-
+let clearBtn = document.querySelector('.form-head a');
+clearBtn.addEventListener('click', function () {
+  document.querySelector('Form').reset();
+});
 //calculation main function
 function calculate(event) {
   event.preventDefault();
@@ -38,7 +41,6 @@ function calculate(event) {
     mortgageTermValue,
     interestRateValue
   );
-
   const totalRepayment = calculateTotalRepayment(
     monthlyRepayment,
     mortgageTermValue
@@ -54,7 +56,6 @@ function calculate(event) {
   );
 
   //use dom manipulatins  to display the results
-
   resultEmpty.classList.add('wraper-result-not-empty');
   resultCompleted.classList.remove('wraper-results-not-completed');
   resultSide.classList.remove('result-side-empty');
@@ -69,9 +70,8 @@ function calculate(event) {
       totalRepaymentValueElem.textContent = Number(
         totalRepayment.toFixed(2)
       ).toLocaleString();
-      console.log('monthlyRepayment', monthlyRepayment);
-      console.log('total repayment', totalRepayment);
       break;
+
     case 'interest-only':
       montlhyRepaymentValueElem.textContent = Number(
         MonthlyInterestOnlyRepayment.toFixed(2)
@@ -79,11 +79,6 @@ function calculate(event) {
       totalRepaymentValueElem.textContent = Number(
         TotalInterestOnlyRepayment.toFixed(2)
       ).toLocaleString();
-      console.log('Total Interest Only Repayment', TotalInterestOnlyRepayment);
-      console.log(
-        'Monthly Interest Only Repayment',
-        MonthlyInterestOnlyRepayment
-      );
       break;
   }
 }
