@@ -115,6 +115,7 @@ function calculateTotalInterestOnlyRepayment(
   return mortagageAmountValue * interestRateValue * mortgageTermValue;
 }
 
+// check that the user check option if true return the choise
 function CheckedRadioOption() {
   let choise;
   radioOptionsElement.forEach((option) => {
@@ -126,6 +127,7 @@ function CheckedRadioOption() {
   return choise;
 }
 
+// check if the input is only numbers bigger then zero
 function isValidForm(...elems) {
   let flag = true;
   elems.forEach((element) => {
@@ -138,7 +140,7 @@ function isValidForm(...elems) {
 
   return flag;
 }
-
+// display errors in the page
 function validationError() {
   const spansError = document.querySelectorAll('.input-box span');
   const warningDivs = document.querySelectorAll('.error-warning');
