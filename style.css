@@ -143,9 +143,10 @@ form label {
 .option label {
   display: flex;
   gap: 0.5rem;
+  color: var(--Slate-900);
 }
 
-input[type='radio'] {
+.option [type='radio'] {
   appearance: none;
   width: 0.8rem;
   height: 0.8rem;
@@ -155,7 +156,7 @@ input[type='radio'] {
   padding: 3px;
 }
 
-input[type='radio']:checked {
+.option input[type='radio']:checked {
   background-color: var(--Lime);
 }
 
